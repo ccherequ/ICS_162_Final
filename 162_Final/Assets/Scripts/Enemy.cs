@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Vector3 start;
     private Vector3 end;
+    public float speed = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class Enemy : MonoBehaviour
         Rigidbody curr = GetComponent<Rigidbody>();
 
         //unless spikeball, move back and forth
-        float time = Mathf.PingPong(Time.time, 1);
+        float time = Mathf.PingPong(Time.time * speed, 1);
         transform.position = Vector3.Lerp(start, end, time);
     }
 
